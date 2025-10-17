@@ -4,8 +4,8 @@ LABEL maintainer="volikitin.vitaliy@icloud.com"
 ENV PYTHONUNBUFFERED 1
 WORKDIR /app
 
-COPY requirements.txt requirements.txt
-RUN pip install -r requirements.txt
+COPY requirements.txt .
+RUN python -m pip install --no-cache-dir --disable-pip-version-check -r requirements.txt
 
 COPY . .
 
