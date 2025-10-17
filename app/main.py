@@ -2,12 +2,15 @@ import os
 import requests
 
 
-def get_weather():
+def get_weather() -> None:
     api_key = os.getenv("API_KEY")
     if not api_key:
         raise ValueError("API_KEY environment variable is not set")
 
-    url = f"http://api.weatherapi.com/v1/current.json?key={api_key}&q=Paris&aqi=no"
+    url = (
+        f"http://api.weatherapi.com/v1/current.json?"
+        f"key={api_key}&q=Paris&aqi=no"
+    )
     response = requests.get(url)
 
     if response.status_code != 200:
